@@ -23,20 +23,20 @@ std::vector<std::string> LetterCombinations::solution (std::string digits) {
     letter_combo.push_back("");
 
     for (auto num : digits) {
-	  // Iterate through digits to get number
-	  int key = num - '0';
-	  std::vector < string > temp;
+	// Iterate through digits to get number
+	int key = num - '0';
+	std::vector < string > temp;
         for (auto option:phone_pad[key]) {
             // Iterate through phone pad to get letter options
             for (auto combo:letter_combo) {
                 // Iterate through letter combo to add onto start of combo
                 temp.push_back (combo + option);
             }
-		}
-		letter_combo.clear ();
-		letter_combo = temp;
 	}
-	return letter_combo;
+	letter_combo.clear ();
+	letter_combo = temp;
+    }
+    return letter_combo;
 }
 
 void LetterCombinations::test_case_one() {
